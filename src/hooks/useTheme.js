@@ -4,9 +4,9 @@ const getInitialPreference = () => {
   // Check if user has saved preference
 
   if (typeof window !== 'undefined' && window.localStorage) {
-    const storedPrefs = JSON.parse(window.localStorage.getItem('dark-mode'));
+    const storedPrefs = JSON.parse(window.localStorage.getItem('color-theme'));
 
-    if (typeof storedPrefs === 'boolean') {
+    if (typeof storedPrefs === 'string') {
       return storedPrefs;
     }
 
@@ -19,20 +19,20 @@ const getInitialPreference = () => {
   return 'light';
 };
 
-export const useDarkMode = () => {
-  const [darkMode, setDarkMode] = useState(() => getInitialPreference());
+export const useTheme = () => {
+  const [theme, setTheme] = useState(() => getInitialPreference());
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+  const toggleTheme = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
   // Save theme preference when it changes
   useEffect(() => {
-    JSON.stringify(localStorage.setItem('dark-mode', darkMode));
-  }, [darkMode]);
+    localStorage.setItem('color-theme', JSON.stringify(theme));
+  }, [theme]);
 
   return {
-    darkMode,
-    toggleDarkMode,
+    theme,
+    toggleTheme,
   };
 };

@@ -1,16 +1,16 @@
 import 'twin.macro';
 
-import { useDarkMode } from './hooks/useDarkMode';
+import { useTheme } from './hooks/useTheme';
 import { ThemeContext } from './context/ThemeContext';
 
 import Header from './components/layout/Header';
 
 const App = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={darkMode && 'dark'} tw="font-sans">
-      <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <div className={theme} tw="font-sans">
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <Header />
       </ThemeContext.Provider>
     </div>
