@@ -8,14 +8,12 @@ import bgHeaderDesktop from '../../assets/desktop/bg-pattern-header.svg';
 import bgHeaderTablet from '../../assets/tablet/bg-pattern-header.svg';
 import bgHeaderMobile from '../../assets/mobile/bg-pattern-header.svg';
 
-const Header = (props) => {
+const Header = ({ children }) => {
   return (
     <StyledHeader>
-      <Container tw="flex items-center justify-between ">
+      <Container tw="flex items-center justify-between">
         <img src={Logo} alt="devjobs" />
-        <div>
-          <button>Toggle dark mode</button>
-        </div>
+        {children}
       </Container>
     </StyledHeader>
   );
