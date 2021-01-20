@@ -2,6 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 
 import Container from './Container';
+import ThemeToggleButton from '../ThemeToggleButton';
 
 import Logo from '../../assets/desktop/logo.svg';
 import bgHeaderDesktop from '../../assets/desktop/bg-pattern-header.svg';
@@ -13,7 +14,7 @@ const Header = ({ children }) => {
     <StyledHeader>
       <Container tw="flex items-center justify-between">
         <img src={Logo} alt="devjobs" />
-        {children}
+        <ThemeToggleButton />
       </Container>
     </StyledHeader>
   );
